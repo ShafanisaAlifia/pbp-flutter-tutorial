@@ -20,6 +20,20 @@ class _MyFormPageState extends State<MyFormPage> {
   List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
   bool _nilaiSwitch = false;
 
+  String? getJenjang(){
+    if (jenjangSarjana){
+        return "Sarjana";
+    }else if (jenjangDiploma){
+        return "Diploma";
+    }else if (jenjangMagister){
+        return "Magister";
+    }else if (jenjangDoktor){
+        return "Doktor";
+    }else {
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,6 +229,8 @@ class _MyFormPageState extends State<MyFormPage> {
                                         const SizedBox(height: 20),
                                         Text('Nama: ' + _namaLengkap),
                                         Text('Umur: ' + umur.toString()),
+                                        Text('Jenjang: ' + getJenjang()!),
+                                        Text('Kelas: ' + kelasPBP.toString()),
                                         TextButton(
                                           onPressed: () {
                                             Navigator.pop(context);
